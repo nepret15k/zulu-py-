@@ -26,6 +26,7 @@ from datetime import datetime, timedelta
 ANIMAL_TYPE = 0x00E1  # type животинки, на которой качаемся
 MAX_SKILL = 50  # потолок скилла до которого качаемся
 ID_NPC = 0x0003939B  # ID вендора
+MIN_GOLD = 100  # минимальное количество золота, если меньше, то выходим
 
 
 class ProcessedAnimals:
@@ -57,7 +58,7 @@ class ProcessedAnimals:
     def __stable_animals(self):
         for animal in self.animals.copy():
             FindTypeEx(0x0EED, 0x0000, Backpack(), True)
-            if FindFullQuantity() < 100:
+            if FindFullQuantity() < MIN_GOLD:
                 print(f"Not Gold!({Gold()})")
                 return False
             if self.animals[animal] is True:
