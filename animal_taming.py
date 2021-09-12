@@ -160,6 +160,7 @@ if __name__ == '__main__':
             break
         Wait(500)
     print("End!")
+    SetPauseScriptOnDisconnectStatus(False)
     if GetARStatus():
         SetARStatus(False)
     Disconnect()
