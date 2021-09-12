@@ -33,7 +33,7 @@ class ProcessedAnimals:
     def __init__(self):
         self.animals = {}
 
-    def __call__(self, **kwargs):
+    def __call__(self):
         self.__get_animals()
         self.__taming_animal()
         if not self.__stable_animals():
