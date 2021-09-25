@@ -76,14 +76,14 @@ class Tailoring:
                 50: {'chose': ['Misc', 'Full Apron'], 'quantity': 10},
                 75: {'chose': ['Misc', '(5)'], 'quantity': 15},
                 100: {'chose': ['Carpet', '(1)'], 'quantity': 10},
-                105: {'chose': ['Carpet', 'Persian Rag'], 'quantity': 12},
-                110: {'chose': ['Carpet', 'Fancy Persian Rag 110'], 'quantity': 14},
-                115: {'chose': ['Carpet', 'Fancy Persian Rag 115'], 'quantity': 14},
-                120: {'chose': ['Carpet', 'Fancy Persian Rag 120'], 'quantity': 14},
-                125: {'chose': ['Carpet', 'Fancy Persian Rag 125'], 'quantity': 16},
-                130: {'chose': ['Carpet', 'Fancy Persian Rag 130'], 'quantity': 16},
-                135: {'chose': ['Carpet', 'Fancy Persian Rag 135'], 'quantity': 18},
-                140: {'chose': ['Carpet', 'Fancy Persian Rag 140'], 'quantity': 20},
+                110: {'chose': ['Carpet', 'Persian Rag 105'], 'quantity': 10},
+                115: {'chose': ['Carpet', 'Fancy Persian Rag 110'], 'quantity': 14},
+                120: {'chose': ['Carpet', 'Fancy Persian Rag 115'], 'quantity': 14},
+                125: {'chose': ['Carpet', 'Fancy Persian Rag 120'], 'quantity': 14},
+                130: {'chose': ['Carpet', 'Fancy Persian Rag 125'], 'quantity': 16},
+                135: {'chose': ['Carpet', 'Fancy Persian Rag 130'], 'quantity': 16},
+                140: {'chose': ['Carpet', 'Fancy Persian Rag 135'], 'quantity': 18},
+                145: {'chose': ['Carpet', 'Fancy Persian Rag 140'], 'quantity': 20},
                 150: {'chose': ['Carpet', 'Fancy Persian Rag 145'], 'quantity': 25}
             }
             for s in skills:
