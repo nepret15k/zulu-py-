@@ -1,12 +1,13 @@
 from py_stealth import *
 from datetime import datetime
 
+# version 2 by nepret
 
 # Летаем по рунам и стрижем овечек, в паке иметь ножници, еду, рунбуку с рунами
 # в настройках ниже указать руны, id рунбуки, перерабатывать ли шерсть в ткань,
 # если да то указать контейнер куда ткань скидывать
 
-# На землю возле тп в доме в радиусе 2 клеток, оставить пачку реколов 
+# На землю возле тп в доме в радиусе 2 клеток, оставить пачку реколов
 # и если перерабатываем шерсть в ткань, то там же ставим прялку, веретено и пак куда скидывать ткань
 
 
@@ -178,8 +179,15 @@ class RecallRunebook:
                 break
             self._runeInfo.append({'name': gumps['Text'][g][0]})
 
-        # запоминаем словари номерами гампов
-        gump = gumps['GumpButtons'][6]['ReturnValue']
+        # ищем первый гамп, от него будем записывать последующие
+        gump = 0
+        for i in range(len(gumps['GumpButtons'])):
+            if gumps['GumpButtons'][i]['ReturnValue'] > 0:
+                gump = gumps['GumpButtons'][i]['ReturnValue']
+                break
+
+        if gump == 0:
+            return False
 
         # сначало scroll, так как эти гампы идут самыми первыми по порядку
         for s, i in zip(range(gump, gump + len(self._runeInfo)), range(len(self._runeInfo))):
@@ -259,7 +267,19 @@ def recharge():
     return False
 
 
+def check_autoloop_settings():
+    while IsGump():
+        CloseSimpleGump(GetGumpsCount() - 1)
+    UOSay('.options')
+    while not IsGump():
+        Wait(100)
+    else:
+        NumGumpCheckBox(GetGumpsCount()-1, 1540, 1)
+        NumGumpButton(GetGumpsCount() - 1, 1029)
+
+
 def main():
+    check_autoloop_settings()
     while not Dead():
         if not check_scissors():
             break
@@ -282,6 +302,8 @@ if __name__ == '__main__':
     SetFindDistance(3)
     SetFindVertical(20)
     SetARStatus(True)
+    if not Connected():
+        Wait(10000)
     SetPauseScriptOnDisconnectStatus(True)
     _rb = RecallRunebook(ID_RUNEBOOK)
     main()
